@@ -8,12 +8,9 @@ parseInput = do
     then return []
     else do
       line <- getLine
-      if null line
-        then return []
-        else do
-          let num = read line :: Int
-          rest <- parseInput
-          return (num : rest)
+      let num = read line :: Int
+      rest <- parseInput
+      return (num : rest)
 
 main = do
   nums <- parseInput
