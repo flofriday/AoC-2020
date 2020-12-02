@@ -14,5 +14,5 @@ parseInput = do
 
 main = do
   nums <- parseInput
-  print ("A: " ++ show (product [x | x <- nums, y <- nums, y + x == 2020]))
-  print ("B: " ++ show (product (nub [x | x <- nums, y <- nums, z <- nums, y + x + z == 2020])))
+  print ("A: " ++ show (head [x * y | x <- nums, y <- nums, y + x == 2020]))
+  print ("B: " ++ show (head [x * y * z | x <- nums, y <- nums, z <- nums, y + x + z == 2020]))
