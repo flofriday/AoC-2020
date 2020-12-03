@@ -10,5 +10,5 @@ countTrees forest x y stepx stepy
 main = do
   content <- getContents
   let forest = lines content
-  print ("A: " ++ show (countTrees forest 0 0 3 1))
-  print ("B: " ++ show (product (map (uncurry (countTrees forest 0 0)) [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)])))
+  print $ "A: " ++ show (countTrees forest 0 0 3 1)
+  print $ "B: " ++ show (product (map (uncurry (countTrees forest 0 0)) [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]))
