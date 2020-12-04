@@ -1,5 +1,6 @@
 import Data.Char
 import Data.List
+--import Data.List.Split
 import qualified Data.Text as T
 
 hasAllFields :: String -> Bool
@@ -32,7 +33,7 @@ isValidB :: String -> Bool
 isValidB text = hasAllFields text && allValidFields
   where
     parts = words text
-    allValidFields = all (== True) (map (\[f, c] -> isValidField (T.unpack f) (T.unpack c)) (map (T.split (== ':')) parts))
+    allValidFields = all (== True) (map (\[f, c] -> isValidField (T.unpack f) (T.unpack c)) (map (\x -> (T.splitOn (T.pack ":") (T.pack x))) parts))
 
 main = do
   input <- getContents
